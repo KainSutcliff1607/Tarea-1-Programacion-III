@@ -1,7 +1,7 @@
 # Evaluación Práctica 1. Resolución de ejercicios
 
 Profesor: Carlos Márquez
-Estudiante: Juan Henríquez
+Estudiante: Juan Henríquez 
 
 ## Descripción de la Actividad
 
@@ -15,9 +15,6 @@ Solicitar el nombre de un animal que sea su favorito y mediante NODE, intercepta
 ### Ejercicio 2
 Utilizando typescript enumerar: género de películas, país de la película y luego mostrarlos.
 
-> **Nota Adicional**: Se ha incluido la funcionalidad para registrar películas dinámicamente utilizando estos enumerados.
-
----
 
 ## Recomendaciones Docentes
 
