@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- 
+    Vista: Formulario de Animal (animal-form.ejs)
+    Esta vista muestra un formulario sencillo para que el usuario ingrese el nombre de su animal favorito.
+-->
 
 <head>
     <meta charset="UTF-8">
     <title>
         <%= title %>
     </title>
+    <!-- 
+        Nota: En este ejercicio mantenemos los estilos aquí (CSS en línea) 
+        para simplificar la estructura y tener todo en un solo archivo.
+    -->
     <style>
         body {
             font-family: sans-serif;
@@ -67,8 +75,17 @@
         <h1>
             <%= title %>
         </h1>
+        <!-- 
+            Formulario HTML:
+            action="/ejercicio1/animal" -> indica a qué ruta enviar los datos
+            method="POST" -> indica que estamos enviando datos para ser procesados (no solo pidiendo una página)
+        -->
         <form action="/ejercicio1/animal" method="POST">
             <label for="animalName">¿Cuál es tu animal favorito?</label>
+            <!-- 
+                IMPORTANTE: el atributo 'name="animalName"' es el identificador 
+                que usaremos en Node.js (req.body.animalName) para leer lo que escribió el usuario.
+            -->
             <input type="text" id="animalName" name="animalName" placeholder="Ej. Perro" required>
             <button type="submit">Enviar</button>
         </form>

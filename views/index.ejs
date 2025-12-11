@@ -1,127 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- 
+    Vista Principal (index.ejs)
+    Esta es la página de aterrizaje de nuestra aplicación.
+    Muestra el título de la evaluación y enlaces a los dos ejercicios.
+-->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- El título viene dinámicamente desde el servidor (app.ts) -->
     <title>
         <%= title %>
     </title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f3f4f6;
-            color: #1f2937;
-            margin: 0;
-            padding: 2rem;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-
-        h1 {
-            color: #111827;
-            text-align: center;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        h2 {
-            color: #374151;
-            margin-top: 1.5rem;
-        }
-
-        .info-box {
-            background-color: #eff6ff;
-            border-left: 4px solid #3b82f6;
-            padding: 1rem;
-            margin: 1.5rem 0;
-            border-radius: 4px;
-        }
-
-        .exercises {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .exercise-card {
-            background-color: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .exercise-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            border-color: #3b82f6;
-        }
-
-        .btn {
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-            background-color: #3b82f6;
-            color: white;
-            padding: 0.75rem 0;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1rem;
-        }
-
-        .btn:hover {
-            background-color: #2563eb;
-        }
-
-        .details {
-            font-size: 0.9rem;
-            color: #6b7280;
-            margin-bottom: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .exercises {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <!-- Vinculamos nuestra hoja de estilos externa -->
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <div class="container">
+        <!-- Encabezado Principal -->
         <h1>Evaluación Práctica 1 - Resolución de Ejercicios</h1>
 
-
-
+        <!-- Descripción General -->
         <p>
             Esta aplicación web ha sido desarrollada para cumplir con los requisitos de la primera evaluación práctica.
             A continuación se presentan las soluciones implementadas para los dos ejercicios propuestos.
         </p>
 
+        <!-- Sección de Tarjetas de Ejercicios -->
         <section class="exercises">
+
+            <!-- Tarjeta Ejercicio 1 -->
             <div class="exercise-card">
                 <h2>Ejercicio 1</h2>
                 <p class="details">Solicitar el nombre de un animal favorito e interceptar la petición con Node.js para
                     mostrarlo en otra vista.</p>
+                <!-- Empujamos el botón al fondo -->
                 <div style="flex-grow: 1;"></div>
                 <a href="/ejercicio1" class="btn">Ir al Ejercicio 1</a>
             </div>
 
+            <!-- Tarjeta Ejercicio 2 -->
             <div class="exercise-card">
                 <h2>Ejercicio 2</h2>
                 <p class="details">Utilizar TypeScript para enumerar géneros y países de películas, mostrarlos y
@@ -131,6 +51,7 @@
             </div>
         </section>
 
+        <!-- Pie de página -->
         <footer
             style="margin-top: 3rem; text-align: center; font-size: 0.85rem; color: #9ca3af; border-top: 1px solid #e5e7eb; padding-top: 1rem;">
             Desarrollado siguiendo las indicaciones docentes. Documentación incluida en el código fuente.

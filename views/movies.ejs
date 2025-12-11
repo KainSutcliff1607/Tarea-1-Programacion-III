@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- 
+    Vista: Gestión de Películas (movies.ejs)
+    Aquí combinamos todo: mostrar datos (Enums) y capturar nuevos datos (Formulario).
+-->
 
 <head>
     <meta charset="UTF-8">
@@ -7,6 +11,7 @@
         <%= title %>
     </title>
     <style>
+        /* Estilos visuales con una paleta de colores rosa/violeta */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 2rem;
@@ -80,12 +85,14 @@
         </h1>
         <p style="text-align: center;">Registro y Listado de Películas usando Enums</p>
 
-        <!-- Formulario de Registro -->
+        <!-- Bloque del Formulario -->
         <div
             style="background: #fdf2f8; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #fbcfe8;">
             <h3 style="margin-top: 0;">Registrar Nueva Película</h3>
             <form action="/ejercicio2/add" method="POST"
                 style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end;">
+
+                <!-- Input para el Título -->
                 <div style="flex: 1; min-width: 200px;">
                     <label for="title"
                         style="display: block; font-weight: bold; margin-bottom: 0.5rem; color: #831843;">Título:</label>
@@ -93,11 +100,13 @@
                         style="width: 100%; padding: 0.5rem; border: 1px solid #db2777; border-radius: 4px;">
                 </div>
 
+                <!-- Selector de Géneros (Llenado dinámicamente con EJS) -->
                 <div style="flex: 1; min-width: 150px;">
                     <label for="genre"
                         style="display: block; font-weight: bold; margin-bottom: 0.5rem; color: #831843;">Género:</label>
                     <select id="genre" name="genre"
                         style="width: 100%; padding: 0.5rem; border: 1px solid #db2777; border-radius: 4px;">
+                        <!-- Recorremos la lista 'genres' que enviamos desde el servidor -->
                         <% genres.forEach(function(genre) { %>
                             <option value="<%= genre %>">
                                 <%= genre %>
@@ -106,6 +115,7 @@
                     </select>
                 </div>
 
+                <!-- Selector de Países -->
                 <div style="flex: 1; min-width: 150px;">
                     <label for="country"
                         style="display: block; font-weight: bold; margin-bottom: 0.5rem; color: #831843;">País:</label>
@@ -124,11 +134,14 @@
             </form>
         </div>
 
-        <!-- Listado de Películas -->
+        <!-- Tabla de Resultados -->
         <h3 style="text-align: center;">Películas Registradas</h3>
+
+        <!-- Condicional EJS: Si no hay películas, mostramos un mensaje -->
         <% if (movies.length===0) { %>
             <p style="text-align: center; color: #666;">No hay películas registradas aún.</p>
             <% } else { %>
+                <!-- Si hay películas, mostramos la tabla -->
                 <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
                     <thead>
                         <tr style="background-color: #fce7f3; color: #831843;">
@@ -140,6 +153,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Bucle para crear una fila por cada película -->
                         <% movies.forEach(function(movie) { %>
                             <tr>
                                 <td style="padding: 0.75rem; border-bottom: 1px solid #fce7f3;">
@@ -157,7 +171,7 @@
                 </table>
                 <% } %>
 
-                    <!-- Listas originales de referencia (opcional, como pedía el ejercicio original enumerar) -->
+                    <!-- Listas de referencia (sección original del ejercicio 2) -->
                     <div class="lists-container" style="margin-top: 3rem; opacity: 0.7; font-size: 0.9rem;">
                         <div class="list-box">
                             <h3>(Referencia) Géneros Disponibles</h3>

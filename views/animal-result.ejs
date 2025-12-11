@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- 
+    Vista: Resultado (animal-result.ejs)
+    Esta página se genera dinámicamente para mostrar el dato que "interceptamos" en el servidor.
+-->
 
 <head>
     <meta charset="UTF-8">
@@ -7,6 +11,7 @@
         <%= title %>
     </title>
     <style>
+        /* Estilos propios para resaltar el resultado */
         body {
             font-family: sans-serif;
             margin: 2rem;
@@ -54,9 +59,15 @@
     <div class="container">
         <h1>¡Interceptado!</h1>
         <p>Tu animal favorito es:</p>
+
+        <!-- 
+            Uso de EJS (Embedded JavaScript):
+            <%= animal %> -> Imprime el valor de la variable 'animal' en el HTML final.
+        -->
         <div class="animal-name">
             <%= animal %>
         </div>
+
         <p>Esta página ha sido generada dinámicamente desde el servidor Node.js.</p>
         <a href="/ejercicio1">Intentar de nuevo</a>
     </div>
