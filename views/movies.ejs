@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= title %>
+    </title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 2rem;
+            background-color: #fdf2f8;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #831843;
+            text-align: center;
+        }
+
+        .lists-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .list-box {
+            width: 45%;
+        }
+
+        h3 {
+            border-bottom: 2px solid #db2777;
+            padding-bottom: 0.5rem;
+            color: #9d174d;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 0.5rem;
+            border-bottom: 1px solid #fce7f3;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        a {
+            display: block;
+            margin-top: 2rem;
+            text-align: center;
+            color: #831843;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>
+            <%= title %>
+        </h1>
+        <p style="text-align: center;">Registro y Listado de Películas usando Enums</p>
+
+        <!-- Formulario de Registro -->
+        <div
+            style="background: #fdf2f8; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #fbcfe8;">
+            <h3 style="margin-top: 0;">Registrar Nueva Película</h3>
+            <form action="/ejercicio2/add" method="POST"
+                style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end;">
+                <div style="flex: 1; min-width: 200px;">
+                    <label for="title"
+                        style="display: block; font-weight: bold; margin-bottom: 0.5rem; color: #831843;">Título:</label>
+                    <input type="text" id="title" name="title" placeholder="Ej. El Padrino" required
+                        style="width: 100%; padding: 0.5rem; border: 1px solid #db2777; border-radius: 4px;">
+                </div>
+
+                <div style="flex: 1; min-width: 150px;">
+                    <label for="genre"
+                        style="display: block; font-weight: bold; margin-bottom: 0.5rem; color: #831843;">Género:</label>
+                    <select id="genre" name="genre"
+                        style="width: 100%; padding: 0.5rem; border: 1px solid #db2777; border-radius: 4px;">
+                        <% genres.forEach(function(genre) { %>
+                            <option value="<%= genre %>">
+                                <%= genre %>
+                            </option>
+                            <% }); %>
+                    </select>
+                </div>
+
+                <div style="flex: 1; min-width: 150px;">
+                    <label for="country"
+                        style="display: block; font-weight: bold; margin-bottom: 0.5rem; color: #831843;">País:</label>
+                    <select id="country" name="country"
+                        style="width: 100%; padding: 0.5rem; border: 1px solid #db2777; border-radius: 4px;">
+                        <% countries.forEach(function(country) { %>
+                            <option value="<%= country %>">
+                                <%= country %>
+                            </option>
+                            <% }); %>
+                    </select>
+                </div>
+
+                <button type="submit"
+                    style="padding: 0.5rem 1.5rem; background-color: #db2777; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Guardar</button>
+            </form>
+        </div>
+
+        <!-- Listado de Películas -->
+        <h3 style="text-align: center;">Películas Registradas</h3>
+        <% if (movies.length===0) { %>
+            <p style="text-align: center; color: #666;">No hay películas registradas aún.</p>
+            <% } else { %>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                    <thead>
+                        <tr style="background-color: #fce7f3; color: #831843;">
+                            <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #db2777;">Título
+                            </th>
+                            <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #db2777;">Género
+                            </th>
+                            <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #db2777;">País</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% movies.forEach(function(movie) { %>
+                            <tr>
+                                <td style="padding: 0.75rem; border-bottom: 1px solid #fce7f3;">
+                                    <%= movie.title %>
+                                </td>
+                                <td style="padding: 0.75rem; border-bottom: 1px solid #fce7f3;">
+                                    <%= movie.genre %>
+                                </td>
+                                <td style="padding: 0.75rem; border-bottom: 1px solid #fce7f3;">
+                                    <%= movie.country %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <% } %>
+
+                    <!-- Listas originales de referencia (opcional, como pedía el ejercicio original enumerar) -->
+                    <div class="lists-container" style="margin-top: 3rem; opacity: 0.7; font-size: 0.9rem;">
+                        <div class="list-box">
+                            <h3>(Referencia) Géneros Disponibles</h3>
+                            <ul>
+                                <% genres.forEach(function(genre) { %>
+                                    <li>
+                                        <%= genre %>
+                                    </li>
+                                    <% }); %>
+                            </ul>
+                        </div>
+
+                        <div class="list-box">
+                            <h3>(Referencia) Países de Origen</h3>
+                            <ul>
+                                <% countries.forEach(function(country) { %>
+                                    <li>
+                                        <%= country %>
+                                    </li>
+                                    <% }); %>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="/">&larr; Volver al Inicio</a>
+    </div>
+</body>
+
+</html>

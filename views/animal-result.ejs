@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= title %>
+    </title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 2rem;
+            background-color: #e6fffa;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #2c7a7b;
+        }
+
+        .animal-name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #319795;
+            margin: 1rem 0;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.5rem 1rem;
+            background-color: #319795;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            background-color: #2c7a7b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>¡Interceptado!</h1>
+        <p>Tu animal favorito es:</p>
+        <div class="animal-name">
+            <%= animal %>
+        </div>
+        <p>Esta página ha sido generada dinámicamente desde el servidor Node.js.</p>
+        <a href="/ejercicio1">Intentar de nuevo</a>
+    </div>
+</body>
+
+</html>
